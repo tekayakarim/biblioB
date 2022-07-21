@@ -11,6 +11,12 @@ const User = mongoose.model(
         type: mongoose.Schema.Types.ObjectId,
         ref: "Role"
       }
+    ],
+    livres: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Livre"
+      }
     ]
   })
 );

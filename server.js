@@ -54,7 +54,6 @@ app.use('/images', express.static(path.join('images')));
 // routes
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
-require("./app/routes/article.routes")(app);
 require("./app/routes/livre.routes")(app);
 
 // set port, listen for requests
