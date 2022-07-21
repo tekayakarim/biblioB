@@ -14,6 +14,7 @@ module.exports = function(app) {
 
 
 app.put('/ajouterLivreToUser',controller.ajouterLivresToUser);
+app.put('/retirerLivreToUser',controller.retirerLivresToUser);
 
 
 
