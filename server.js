@@ -55,6 +55,7 @@ app.use('/images', express.static(path.join('images')));
 require("./app/routes/auth.routes")(app);
 require("./app/routes/user.routes")(app);
 require("./app/routes/article.routes")(app);
+require("./app/routes/livre.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8000;
@@ -85,6 +86,16 @@ function initial() {
         }
 
         console.log("added 'admin' to roles collection");
+      });
+
+      new Role({
+        name: "visiteur"
+      }).save(err => {
+        if (err) {
+          console.log("error", err);
+        }
+
+        console.log("added 'visiteur' to roles collection");
       });
     }
   });
