@@ -10,13 +10,23 @@ exports.ajouterLivresToUser=async (req, res, next) => {
         
         console.warn(liv);
         User.findOne( req.email ).then((user)=>{console.warn(user);
-            if(User.find(liv))
-            res.status(201).json({ message: 'livre existant!' })
-            else {
+
+         i=0;
+           for (i = 0; i < user.livres.length; i++) {
+         console.warn("liv._id======" +liv._id);
+        console.warn("user.livres["+i+"] ====="+user.livres[i] );
+               if(user.livres[i].equals(liv._id))
+               { console.warn("okayyyy");
+               res.status(201).json({ message: 'livre existant!' });
+               }
+           }
+
+             console.warn(user.livres.length);
+             if(i==user.livres.length) {
             user.livres.push(liv);
             User.updateOne(user)
             .then((user) => res.status(201).json({ message: 'livre ajoutee!' }))
-            }
+             } 
         });
     });
  
